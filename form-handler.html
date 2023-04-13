@@ -1,0 +1,31 @@
+<script>
+  function handleForm(form) {
+    google.script.run
+      .withFailureHandler(error)
+      .withSuccessHandler(setCost)
+      .processForm(form);
+  }
+
+  function error(message) {
+    console.log('Something went wrong');
+  }
+
+  function setCost(output) {
+    const costElement = document.getElementById('cost');
+    costElement.innerHTML = output.cost;
+
+    const symbolElement = document.getElementById('symbol');
+    symbolElement.innerHTML = output.symbol;
+  }
+
+  function preventForm() {
+    const forms = document.querySelectorAll('form');
+    for (let form of forms) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+      });
+    }
+  }
+
+  window.addEventListener('load', preventForm);
+</script>

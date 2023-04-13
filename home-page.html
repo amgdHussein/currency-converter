@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <?!= include('form-handler'); ?>
+  </head>
+
+  <body>
+    <section class="vh-100" style="background-color: #eee">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-12 col-xl-15">
+            <div class="card text-black" style="border-radius: 25px">
+              <div class="card-body p-md-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                      Currency Converter
+                    </p>
+
+                    <form
+                      class="mx-1 mx-md-4"
+                      id="currencyForm"
+                      onsubmit="handleForm(this)"
+                    >
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label for="amount" class="form-label">Amount</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="amount"
+                            name="amount"
+                            min="1"
+                            value="1"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row">
+                        <div
+                          class="d-flex flex-row align-items-center mb-4 mr-4"
+                        >
+                          <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <select class="form-control" id="from" name="from">
+                              <?!= createDropdown(); ?>
+                            </select>
+
+                            <label class="form-label" for="from">From</label>
+                          </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <select class="form-control" id="to" name="to">
+                              <?!= createDropdown(); ?>
+                            </select>
+
+                            <label class="form-label" for="to">To</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div
+                          class="d-flex flex-row form-outline flex-fill mb-0"
+                        >
+                          <p id="cost" class="h4 fw-bold mr-2"></p>
+                          <p id="symbol" class="h4 fw-bold text-secondary"></p>
+                        </div>
+                      </div>
+
+                      <div
+                        class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
+                      >
+                        <button
+                          type="submit"
+                          class="btn btn-primary btn-lg"
+                          form="currencyForm"
+                        >
+                          Convert
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div
+                    class="col-md-10 col-lg-5 col-xl-6 d-flex align-items-center order-1 order-lg-2"
+                  >
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                      class="img-fluid"
+                      alt="Sample image"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
